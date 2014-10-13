@@ -16,6 +16,7 @@ function [TestError, TrainError] = CalcErrorsTrainCrossSet(Xtrain, Ytrain, cross
     end 
     TestError = mean(Ypredict~=Ytrain);
     TrainError = TrainError/(k-1);
+    assert(0);
 end 
 
         
