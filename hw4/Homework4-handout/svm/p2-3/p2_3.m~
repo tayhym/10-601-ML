@@ -1,0 +1,23 @@
+% combines train and test sets of vaccine data 
+clear
+clc
+load('ps4-svm.mat')
+
+Xtrain = [x_train;x_test];
+Ytrain = [y_train;y_test];
+
+
+C_array = [0, 0.1, 0.3, 0.5, 1, 2, 5, 8, 10];
+train_errors = zeros(1, length(C_array));
+test_errors = zeros(1, length(C_array));
+cross_set_labels = PartitionCrossSet(size(Xtrain,1),4); % 4 fold-cross validation
+
+for i=1:length(C_array)
+    C = C_array(i);
+    % train svm with no kernel with 4 fold cross validation
+    [test_errors(i), train_errors(i)] = CalcErrorsTrainCrossSet(Xtrain,Ytrain,cross_set_labels);
+end 
+
+
+%% 
+figure; 

@@ -1,0 +1,28 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% trains a model that distinguishes onion articles
+% from economist articles.
+% assumes that underlying model for word occurance 
+% is multinomial, and that this approximates the ordered 
+% word events. (i.e. uses naive bayes for word events)
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [model] = nb_train(Xtrain, Ytrain)
+
+% some useful variables
+n = size(Xtrain, 1); 
+V = size(Xtrain, 2); % num features (different types of words)
+
+
+% to make a prediction, the priors are learned from the given 
+% training data, and the conditional probabilities are learned as well 
+
+
+% calculate conditional probabilities.
+
+
+for j=1:V
+    
+
+
+
+end 

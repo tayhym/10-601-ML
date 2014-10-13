@@ -1,0 +1,40 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% tests a document of length q, using a multinomial model
+% the prior probabilities were calculated using the train dataset
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [Pred_nb] = nb_test(model, Xtest)
+
+% useful variables
+m = size(Xtest,1);
+V = size(Xtest,2);
+
+% extract probabilities from model
+priors = model.priors;
+conditionals_onion = model.conditionals_onion;
+conditionals_econ = model.conditionals_econ;
+
+% calc log probabilities to avoid small numbers
+log_cond_o = log(conditionals_onion);
+log_cond_e = log(conditionals_econ);
+log_prior_o = log(priors(1));
+log_prior_e = log(priors(2));
+
+Pred_nb = zeros(m,1); % vector of predictions for each of test documents
+
+% loop over each training document, calculating probability
+for i=1:m
+    % calc q=num_words in test document
+    q = sum(Xtest(i,:),2);
+    % calc another constant term in the formula (the sum of log(c_j!))
+    const2 = sum(log(factorial(Xtest(i,:))),2);
+    const1 = log(factorial(q));
+    const = const1 - const2;
+    
+    
+    % calculate the terms that vary with priors and conditional
+    % probabilities
+    
+    pred_o = sum(log_cond_o(
+
+
+end

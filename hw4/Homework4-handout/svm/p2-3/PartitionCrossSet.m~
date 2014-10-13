@@ -1,0 +1,13 @@
+% randomly assign instances to 1 of k sets, each set 
+% have approximately (as close as possible) the same number of instances
+% YcrossSetLabel: column vector for set the instance belongs to, 
+%                 from 1 to k
+function [YcrossSetLabel] = PartitionCrossSet(size,k)
+    YcrossSetLabel = zeros(size,1);
+    % number of elements in each set is approximately the same
+    setSize = size/k;
+    
+    if (ceil(setSize) ~= size)
+        normal_setSize = 
+    % the last set will have less elements
+        lastSetSize = mod(size,);
