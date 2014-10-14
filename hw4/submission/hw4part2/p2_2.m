@@ -57,10 +57,3 @@ acc_linear_10 = mean(pred_linear_10==Ytest_10);
 
  %% 
  figure; scatter3(Xtrain(:,1),Xtrain(:,1), Ytrain);
-%% train using nb
-[ypred_nb] = TrainHeldOut(Xtrain,Ytrain,Xtrain_2_test_labels);
-acc2 = mean(ypred_nb==Ytest_2);
-fprintf('nb accuracy 2 partitions: %.3f \n',acc2);
-[ypred_nb_10] = TrainHeldOut(Xtrain, Ytrain,Xtrain_10_test_labels);
-acc10 = mean(ypred_nb_10==Ytest_10);
-fprintf('nb accuracy 10 partitions: %.3f \n', acc10);

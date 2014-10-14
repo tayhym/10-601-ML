@@ -44,19 +44,3 @@ end
 %% 
 figure; plot(C_array,train_errors); title('train errors plot'); xlabel('C-higher C for more over-fitting'); ylabel('Average Train error');
 figure; plot(C_array,test_errors); title('test errors plot'); xlabel('C-higher C for more over-fitting'); ylabel('Total Test error');
-
-%%
-%% train using nb
-load dictionary.mat
-load handout.mat
-
-% 2 partitions and 10 partitions case;
-Xtrain_2_test_labels = PartitionCrossSet(size(Xtrain,1),2);
-Xtrain_10_test_labels = PartitionCrossSet(size(Xtrain,1),10);
-
-[ypred_nb] = TrainCrossSet(Xtrain,Ytrain,Xtrain_2_test_labels);
-acc2 = mean(ypred_nb==Ytrain);
-fprintf('nb accuracy 2 partitions: %.3f \n',acc2);
-[ypred_nb_10] = TrainCrossSet(Xtrain, Ytrain,Xtrain_10_test_labels);
-acc10 = mean(ypred_nb_10==Ytrain);
-fprintf('nb accuracy 10 partitions: %.3f \n', acc10);

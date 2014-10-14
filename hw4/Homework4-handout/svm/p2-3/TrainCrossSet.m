@@ -4,7 +4,7 @@
 % k different (though dependent) models 
 function [Ypredict] = TrainCrossSet(Xtrain, Ytrain, crossSetLabel)
     k = max(crossSetLabel); % number of partitions
-    Ypredict = zeros(size(Ytrain,1),1); % same number of instances as Ytrain
+    Ypredict = zeros(numel(Ytrain),1); % same number of instances as Ytrain
     
     for i=1:k
         test_indx = crossSetLabel == i;
